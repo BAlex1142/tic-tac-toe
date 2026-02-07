@@ -45,18 +45,16 @@
     
     .game-cell {
         font-size: 2rem;
-        min-height: 55px !important;  /* ✅ Touch-зона */
+        min-height: 55px !important;
         border-width: 2px !important;
     }
     
-    /* ✅ КРЕСТИКИ — меньше палки */
     .game-cell.X::before,
     .game-cell.X::after {
         width: 65% !important;
         height: 6px !important;
     }
     
-    /* ✅ НОЛИКИ — меньше круг */
     .game-cell.O::before {
         width: 65% !important;
         height: 65% !important;
@@ -89,6 +87,7 @@
     .nav-btn {
         padding: 0.7rem 1rem;
         font-size: 0.85rem;
+        min-height: 38px !important;
     }
     
     .page {
@@ -117,11 +116,10 @@
     
     .game-cell {
         font-size: 1.8rem;
-        min-height: 48px !important;  /* ✅ Touch-зона */
+        min-height: 48px !important; 
         border-width: 1.5px !important;
     }
     
-    /* ✅ ЕЩЁ МЕНЬШЕ на маленьких экранах */
     .game-cell.X::before,
     .game-cell.X::after {
         width: 60% !important;
@@ -134,10 +132,19 @@
         border-width: 5px !important;
     }
     
-    /* ✅ КНОПКИ ВЕРТИКАЛЬНО */
+    /* ✅ ВСЕ кнопки вертикально + компактно */
     .buttons-container {
         flex-direction: column !important;
-        gap: 12px !important;
+        gap: 10px !important;
+        align-items: center !important;
+    }
+    
+    .reset-btn, .back-btn, .nav-btn {
+        padding: 0.6rem 1.2rem !important;
+        font-size: 0.85rem !important;
+        min-height: 38px !important;
+        width: 90% !important;
+        max-width: 200px !important;
     }
     
     .score-table th, .score-table td {
