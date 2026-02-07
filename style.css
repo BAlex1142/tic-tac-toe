@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Russo One', sans-serif;
+    background: #fafafa;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    margin: 1rem auto;
+    padding: .5rem;
+    width: 50%;
+    text-align: center;
+    font-size: .9rem;
+    background: #2b973b;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 35px;
+    margin: 1.5rem auto;
+    background: #2b973b;
+    border-radius: 5px;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1em;
+    font-family: 'Russo One', sans-serif;
+    color: white;
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: #1f7e2c;
+}
+
+.page {
+    margin: 1rem auto;
+    padding: .5rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50%;
+}
+.page.main p {
+    text-align: left;
+}
+.page.rules {
+    padding: 2rem;
+    text-align: left;
+}
+.page.rules h2,
+.page.score h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+.page.rules p {
+    margin: .5rem 0;
+    line-height: 1.3;
+    font-size: 1rem;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);   
+    gap: 0.5rem;
+    margin: 2rem auto;
+    width: 70%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.game-board > div {
+    border: 1px solid #345;
+    border-radius: 5px;
+}
+.game-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.game-cell.X::before,
+.game-cell.X::after {
+    content: '';
+    position: absolute;
+    background-color: #e22c18;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+.game-cell.X::before {
+    width: 70%;
+    height: 8px;
+    transform: rotate(45deg);
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    translate: -50% -50%;
+}
+.game-cell.X::after {
+    width: 70%;
+    height: 8px;
+    transform: rotate(-45deg);
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    translate: -50% -50%;
+}
+.game-cell.O::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border: 8px solid #3498db;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+}
+.game-cell:hover::before,
+.game-cell:hover::after {
+    transform: scale(1.05);
+}
+.game-cell.X:hover::before,
+.game-cell.X:hover::after {
+    background-color: #c0392b;
+}
+.game-cell.O:hover::before {
+    border-color: #2980b9;
+}
+.game-cell.X::before,
+.game-cell.X::after,
+.game-cell.O::before {
+    opacity: 0;
+    animation: drawSymbol 0.3s ease-out forwards;
+}
+@keyframes drawSymbol {
+    to {
+        opacity: 1;
+    }
+}
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+}
+.reset-btn,
+.back-btn {
+    display: block;
+    margin: 1rem auto;
+    padding: .5rem 2rem;
+    font-size: 1rem;
+    font-family: 'Russo One', sans-serif;
+    color: white;
+    cursor: pointer;
+    background-color: #2b973b;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+.reset-btn:hover,
+.back-btn:hover {
+    background-color: #1f7e2c;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.reset-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem auto;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.score-table th,
+.score-table td {
+    padding: .5rem;
+    text-align: left;
+    font-size: 1.1rem;
+}
+.score-table th {
+    background-color: #2b973b;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+.score-table tr:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+.score-table tr:hover {
+    background-color: #f0f7ff;
+    transition: background-color 0.2s ease;
+}
+.row-o td:first-child {
+    color: #3498db;
+}
+.row-x td:first-child {
+    color: #e74c3c;
+}
+.row-draw td:first-child {
+    color: #95a5a6;
+}
+.score-value {
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-align: right;
+    min-width: 60px;
+}
+footer {
+    margin-top: auto;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}

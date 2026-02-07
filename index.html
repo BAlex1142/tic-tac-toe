@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Крестики-нолики | SPA </title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+    <header>
+        <h1> Крестики-нолики </h1>
+    </header>
+    <nav>
+        <button class="nav-btn" onclick="navigateTo('#main', switchToMainPage)"> Главная </button>
+        <button class="nav-btn" onclick="navigateTo('#game', switchToGamePage)"> Играть </button>
+        <button class="nav-btn" onclick="navigateTo('#score', switchToScorePage)"> Счёт </button>
+        <button class="nav-btn" onclick="navigateTo('#rules', switchToRulesPage)"> Правила </button>
+    </nav>
+    <main id="IPage"> </main>
+    <footer>
+        <p> &copy; Baranovsky by IT-Academy, 2026 </p>
+    </footer>
+    <script src="router.js"> </script>
+    <script src="game.js"> </script>
+    <script src="script-main.js"> </script>
+    <script src="script-game.js"> </script>
+    <script src="script-score.js"> </script>
+    <script src="script-rules.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"> </script>
+    <audio id="victorySound" preload="auto"> <source src="win31.mp3" type="audio/mpeg"> </audio>
+</body>
+</html>

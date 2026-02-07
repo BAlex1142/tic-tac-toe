@@ -1,0 +1,119 @@
+:root {
+    --mobile-width: 95%;
+    --tablet-width: 80%;
+    --desktop-width: 600px;
+}
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+    }
+    header {
+        width: var(--mobile-width);
+        margin: 0.5rem auto;
+        padding: 0.8rem;
+    }
+    nav {
+        width: var(--mobile-width);
+        margin: 1rem auto;
+        height: 45px;
+    }
+    .nav-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    .page {
+        width: var(--mobile-width);
+        margin: 1rem auto;
+        padding: 1.2rem;
+    }
+    .page.rules {
+        padding: 1.5rem;
+    }
+    .game-board {
+        width: min(95vw, 300px);
+        gap: 0.3rem;
+        margin: 1.5rem auto;
+    }
+    .game-cell {
+        font-size: 2rem;
+    }
+    .reset-btn, .back-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    .score-table {
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 480px) {
+    header {
+        width: 98%;
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+    nav {
+        width: 98%;
+        height: 50px;
+    }
+    .nav-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+    .page {
+        width: 98%;
+        padding: 1rem;
+        margin: 0.8rem auto;
+    }
+    .page.rules {
+        padding: 1.2rem;
+    }
+    .page.rules h2, .page.score h2 {
+        font-size: 1.3rem;
+    }
+    .page.rules p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    .game-board {
+        width: min(98vw, 280px);
+        gap: 0.2rem;
+    }
+    .game-cell {
+        font-size: 1.8rem;
+        border-width: 1px;
+    }
+    .score-table th, .score-table td {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    header, nav, .page {
+        width: var(--tablet-width);
+    }
+    .game-board {
+        width: min(60vw, 350px);
+    }
+}
+@media (min-width: 1025px) {
+    header, nav, .page {
+        width: var(--desktop-width);
+    }
+    .game-board {
+        width: min(50vw, 350px);
+    }
+}
+@media (hover: none) and (pointer: coarse) {
+    .game-cell:hover {
+        transform: none;
+        background: inherit;
+    }
+    .nav-btn:hover, .reset-btn:hover, .back-btn:hover {
+        transform: none;
+    }
+}
+.game-cell {
+    touch-action: manipulation;
+}
